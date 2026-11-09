@@ -1,0 +1,200 @@
+{
+  "measured_at_utc": "2026-11-09T01:49:47.249346+00:00",
+  "mode": "demo",
+  "embedding_mode": "hash",
+  "model": "offline-demo",
+  "documents": 1,
+  "chunks": 1,
+  "question": "XH-01 的串口波特率和接线要求是什么？",
+  "samples": 20,
+  "warmup": 2,
+  "concurrency": 1,
+  "mean_ms": 14.22,
+  "p50_ms": 13.14,
+  "p95_ms": 17.58,
+  "target_ms": 2000,
+  "p95_within_target": true,
+  "note": "Offline demo; not LLM inference latency.",
+  "measurements": [
+    {
+      "http_ms": 11.91,
+      "retrieval_ms": 6.18,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.23,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.65,
+      "retrieval_ms": 6.31,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.36,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 17.58,
+      "retrieval_ms": 6.19,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.25,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.94,
+      "retrieval_ms": 6.88,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 7.02,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.7,
+      "retrieval_ms": 6.99,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 7.04,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 14.35,
+      "retrieval_ms": 7.37,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 7.42,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 15.18,
+      "retrieval_ms": 8.29,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 8.33,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.17,
+      "retrieval_ms": 5.73,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 5.78,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.23,
+      "retrieval_ms": 5.95,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 5.99,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.35,
+      "retrieval_ms": 6.25,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.32,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.23,
+      "retrieval_ms": 6.72,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.77,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.37,
+      "retrieval_ms": 6.63,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.67,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.05,
+      "retrieval_ms": 6.54,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.59,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.26,
+      "retrieval_ms": 7.43,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 7.49,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 11.1,
+      "retrieval_ms": 5.84,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 5.88,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.25,
+      "retrieval_ms": 6.44,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.51,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.66,
+      "retrieval_ms": 7.49,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 7.54,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 13.27,
+      "retrieval_ms": 6.67,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.72,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 12.9,
+      "retrieval_ms": 6.5,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 6.54,
+      "sources": 1,
+      "tools": 0
+    },
+    {
+      "http_ms": 33.35,
+      "retrieval_ms": 5.8,
+      "llm_ms": 0.0,
+      "tools_ms": 0,
+      "total_ms": 5.84,
+      "sources": 1,
+      "tools": 0
+    }
+  ]
+}

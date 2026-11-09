@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+data/
+*.db
+*.db-shm
+*.db-wal
+*.egg-info/
+dist/
+.coverage
+benchmark*.json
+!docs/benchmark-demo.json

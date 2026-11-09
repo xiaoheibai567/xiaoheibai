@@ -1,0 +1,18 @@
+services:
+  manualpilot:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATA_DIR: /app/data
+      TOOL_FILES_DIR: /app/examples/files
+    volumes:
+      - knowledge-data:/app/data
+    restart: unless-stopped
+    # To use a compatible real serial device on Linux, explicitly map it and
+    # grant its group via group_add. See README; mock is the default.
+volumes:
+  knowledge-data:

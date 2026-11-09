@@ -1,0 +1,36 @@
+name: Tests and container
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install uv==0.12.9
+      - run: uv sync --frozen --extra dev
+      - run: uv run --frozen ruff check app tests scripts
+      - run: uv run --frozen ruff format --check app tests scripts
+      - run: uv run --frozen pytest -q
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install httpx==0.28.1
+      - run: docker compose config --quiet
+      - run: docker build -t manualpilot:test .
+      - run: docker run -d --name manualpilot -p 127.0.0.1:8000:8000 manualpilot:test
+      - run: python scripts/smoke.py
+      - if: always()
+        run: docker logs manualpilot

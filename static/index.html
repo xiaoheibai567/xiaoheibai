@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#162c2b">
+  <title>ManualPilot · 文档与设备助手</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="/" class="brand"><span class="brand-icon">M<span>↗</span></span><span>ManualPilot<small>让资料连接行动</small></span></a>
+    <div class="workspace-label">工作空间 <span>LOCAL</span></div>
+    <div class="nav-item active"><span>◈</span> 知识问答 <span class="nav-dot"></span></div>
+    <section class="library">
+      <div class="section-title"><h2>知识库</h2><span id="doc-count">0 份文档</span></div>
+      <label class="upload-area" id="drop-zone" for="file-input">
+        <span class="upload-icon">↥</span><strong>导入你的资料</strong>
+        <span>点击选择或拖拽文件到这里</span><small>PDF / Word / TXT / MD · 最大 20 MB</small>
+        <input id="file-input" type="file" accept=".pdf,.docx,.txt,.md" multiple>
+      </label>
+      <p id="upload-status" class="upload-status" role="status"></p>
+      <div id="document-list" class="document-list"></div>
+    </section>
+    <div class="sidebar-bottom">
+      <details class="connection"><summary>连接设置 <span>⚙</span></summary>
+        <label for="api-token">服务访问令牌</label><input id="api-token" type="password" autocomplete="off" placeholder="设置 API_TOKEN 后填写">
+        <button id="save-token" type="button">保存并连接</button><small>仅保留在当前浏览器会话中</small>
+      </details>
+      <div class="connection-status"><i id="connection-dot"></i><span id="connection-text">正在连接服务</span><a href="/docs" target="_blank" rel="noreferrer">API ↗</a></div>
+    </div>
+  </aside>
+  <main>
+    <header class="topbar"><div><span class="breadcrumb">工作空间 /</span> 知识问答</div><span class="mode-badge" id="mode">连接中</span></header>
+    <div class="main-body">
+      <section class="conversation" aria-label="问答对话">
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <span class="eyebrow">YOUR KNOWLEDGE, IN MOTION</span>
+            <h1>从一页资料，<br>到下一步行动<span>。</span></h1>
+            <p>提问、追溯原文，或让助手调用工具完成任务。<br>手册里的答案，现在触手可及。</p>
+            <div class="suggestions">
+              <button data-question="XH-01 实验板的串口参数是什么？"><span>01 / 查资料</span><strong>实验板的串口参数是什么？</strong><b>↗</b></button>
+              <button data-question="查询 STM32F103C8T6 的库存和存放位置"><span>02 / 查库存</span><strong>STM32F103C8T6 还有多少库存？</strong><b>↗</b></button>
+              <button data-question="查询 STM32F103C8T6 库存，读取串口协议并打开 LED"><span>03 / 调工具</span><strong>查库存、读协议，再打开 LED</strong><b>↗</b></button>
+            </div>
+            <div class="welcome-footnote"><span>◉</span> 已附带虚构实验板手册，可直接体验完整流程</div>
+          </div>
+        </div>
+        <div class="composer-wrap">
+          <div class="control-row"><label><input id="allow-control" type="checkbox"> 本轮允许改变设备状态</label><span id="device-mode">设备 · 模拟</span></div>
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="question">你的问题</label>
+            <textarea id="question" maxlength="2000" rows="2" placeholder="问一问你的文档，或描述需要完成的任务…" required></textarea>
+            <div class="composer-bottom"><span>↵ 发送 <span class="key-hint">· Shift + Enter 换行</span></span><button id="send" type="submit" aria-label="发送问题">发送 <span>↑</span></button></div>
+          </form>
+          <p class="disclaimer" id="disclaimer">离线模式提供原文摘录与规则工具演示。真实问答需配置大模型 API。</p>
+        </div>
+      </section>
+      <aside class="inspector" aria-label="检索与执行记录">
+        <div class="inspector-heading"><h2>回答的依据</h2><span>↗</span></div>
+        <p class="inspector-intro">每个结论有迹可循，每次执行清晰可见。</p>
+        <div class="inspector-tabs"><button class="selected" id="sources-tab" type="button">引用来源 <span id="source-count">0</span></button><button id="tools-tab" type="button">工具记录 <span id="tool-count">0</span></button></div>
+        <div id="sources-panel"><div class="empty-state"><span>▤</span><strong>等待一次好问题</strong><p>提问后，相关文档片段<br>和出处会出现在这里。</p></div></div>
+        <div id="tools-panel" hidden></div>
+        <div class="latency" id="latency" hidden></div>
+        <div class="inspector-note"><span>◆</span><p>同名文档自动增量更新。<br>未变化的片段复用已有向量。</p></div>
+      </aside>
+    </div>
+  </main>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
