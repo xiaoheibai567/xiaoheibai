@@ -13,7 +13,10 @@
 | 延迟基准 | `benchmark-demo.json`：20 次采样、2 次预热、并发 1；只代表离线模式，不代表真实模型推理 |
 | 大模型 API | HTTP mock 验证兼容协议及 4 轮请求（3 次工具 + 最终回答），未使用真实供应商密钥 |
 | 真实串口 | 未连接硬件；已实现 pyserial 执行路径，尚待设备联调 |
-| Docker | 本机没有 Docker；提供镜像、Compose、GitHub Actions 容器构建与冒烟验证流程 |
+| Docker | 本机没有 Docker；GitHub Actions 已成功构建镜像、启动容器并完成检索与三种工具的闭环冒烟测试 |
+
+远端 [CI 验证记录](https://github.com/xiaoheibai567/xiaoheibai/actions/runs/42547882472)：
+Python 3.11 / 3.12 / 3.14 三个测试任务及 Docker 任务均成功。源码提交为 `33133ba`；本文后续更新仅补记验收结果。
 
 真实模型验收：配置 `.env` 的模型与 embedding 参数，改用新 `DATA_DIR` 导入目标资料，然后执行
 `python scripts/benchmark.py --samples 20 --warmup 2 --output benchmark-api.json`。
